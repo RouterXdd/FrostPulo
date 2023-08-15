@@ -1,6 +1,6 @@
 package frostPulo.classes.blocks.defence;
 
-import frostPulo.classes.FPStats;
+import frostPulo.classes.*;
 import mindustry.content.*;
 import mindustry.entities.*;
 import mindustry.logic.*;

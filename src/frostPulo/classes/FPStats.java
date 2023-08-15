@@ -12,7 +12,8 @@ public class FPStats implements Comparable<Stat> {
     public static final Stat
 
             statusRange = new Stat("statusRange"),
-            statusExp = new Stat("statusExp")
+            statusExp = new Stat("statusExp"),
+            armorTeared = new Stat("armorTeared")
     ;
 
     public final StatCat category;

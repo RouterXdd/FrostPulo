@@ -3,10 +3,10 @@ package frostPulo.content;
 import arc.struct.*;
 import frostPulo.classes.blocks.defence.*;
 import frostPulo.classes.campain.FrozenUnit;
+import frostPulo.classes.entities.bullets.ArmorTearBullet;
 import mindustry.content.*;
 import mindustry.entities.bullet.*;
 import mindustry.entities.pattern.*;
-import mindustry.graphics.*;
 import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.blocks.defense.turrets.*;
@@ -24,7 +24,7 @@ public class FPBlocks {
             cryoWall, cryoWallLarge,
 
             //turrets
-            wake, riot,
+            wake, riot, raffle,
 
             //frozen/derelict
             frozenFlare, frozenTest, frozenDuo
@@ -126,6 +126,44 @@ public class FPBlocks {
             ammoEjectBack = 5f;
             ammoUseEffect = Fx.casing3Double;
             ammoPerShot = 2;
+        }};
+        raffle = new ItemTurret("raffle"){{
+            requirements(Category.turret, with(Items.lead, 230, Items.silicon, 186, Items.titanium, 140, FPItems.cryoCrystal, 98, Items.thorium, 54));
+            ammo(
+                    Items.thorium, new ArmorTearBullet(8f, 80){{
+                        //TODO normal Fx
+                        hitEffect = Fx.blastExplosion;
+                        lifetime = 60f;
+                        width = 9f;
+                        height = 16f;
+                        ammoMultiplier = 2f;
+                        tearChance = 20;
+                        pierce = true;
+                        pierceCap = 3;
+                    }},
+                    Items.blastCompound, new BasicBulletType(8f, 30){{
+                        //TODO normal Fx
+                        hitEffect = Fx.blastExplosion;
+                        lifetime = 60f;
+                        width = 9f;
+                        height = 16f;
+                        ammoMultiplier = 3f;
+                        splashDamage = 110f;
+                        splashDamageRadius = 6f;
+                    }}
+            );
+            size = 4;
+            reload = 340f;
+            recoil = 1f;
+            shootCone = 70f;
+            liquidCapacity = 20f;
+            shootEffect = Fx.shootLiquid;
+            range = 460f;
+            scaledHealth = 190;
+            coolant = consumeCoolant(0.6f);
+            ammoEjectBack = 8f;
+            ammoUseEffect = Fx.casing3Double;
+            ammoPerShot = 4;
         }};
         //frozen/derelict
         frozenDuo = new ItemTurret("duo-frozen"){{
